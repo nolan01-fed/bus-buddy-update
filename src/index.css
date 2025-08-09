@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 258 90% 60%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -102,4 +102,12 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .bg-gradient-brand {
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--ring)));
+  }
+  .shadow-elevated { box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.25); }
+  .transition-smooth { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 }
