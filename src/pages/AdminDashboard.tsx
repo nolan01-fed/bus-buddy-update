@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BusRoute, CheckIn, Stop, exportCheckInsCsv, onRealtimeUpdate, store } from "@/state/mockStore";
+import { BusRoute, CheckIn, Stop, exportCheckInsCsv, onRealtimeUpdate, store } from "@/state/store";
 import { toast } from "@/hooks/use-toast";
+import { Navigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const [stops, setStops] = useState<Stop[]>(store.getStops());
@@ -15,6 +16,9 @@ const AdminDashboard = () => {
   const [checkIns, setCheckIns] = useState<CheckIn[]>(store.getCheckIns());
   const [newStop, setNewStop] = useState("");
   const [override, setOverride] = useState<Record<string, string>>({});
+
+  const user = store.getCurrentUser();
+  if (!user || !user.isAdmin) return <Navigate to="/login" replace />;
 
   useEffect(() => {
     const off = onRealtimeUpdate(() => {

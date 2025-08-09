@@ -1,6 +1,6 @@
 import TopNav from "@/components/TopNav";
 import { useEffect, useMemo, useState } from "react";
-import { store, onRealtimeUpdate, BusRoute, Stop } from "@/state/mockStore";
+import { store, onRealtimeUpdate, BusRoute, Stop } from "@/state/store";
 import { BusStatusCard } from "@/components/BusStatusCard";
 import { toast } from "@/hooks/use-toast";
 
