@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { store, onRealtimeUpdate, User } from "@/state/mockStore";
+import { store, onRealtimeUpdate, User } from "@/state/store";
 
 const TopNav = () => {
   const [user, setUser] = useState<User | null>(store.getCurrentUser());
